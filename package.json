@@ -19,6 +19,7 @@
     "@mantine/hooks": "^7.12.2",
     "@mantine/spotlight": "^7.12.2",
     "@mantine/tiptap": "^7.12.2",
+    "@prisma/client": "^5.19.0",
     "@tabler/icons-react": "^3.14.0",
     "@tiptap/extension-link": "^2.6.6",
     "@tiptap/react": "^2.6.6",
@@ -45,6 +46,6 @@
     "postcss": "^8.4.43",
     "postcss-preset-mantine": "^1.17.0",
     "postcss-simple-vars": "^7.0.1",
-    "prisma": "^5.19.0"
+    "prisma": "^5.19.1"
   }
 }
