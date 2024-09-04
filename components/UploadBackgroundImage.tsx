@@ -55,9 +55,9 @@ export const UploadBackgroundImage = () => {
   }
 
   return (
-    <div>
-      <h1>Upload a File to S3</h1>
-      <form onSubmit={handleSubmit}>
+    <div className='bg-slate-800 opacity-85 rounded-lg p-6'>
+      <h1 className='text-white'>Upload a File to S3</h1>
+      <form onSubmit={handleSubmit} className='bg-white p-6'>
         <input
           id="file"
           type="file"

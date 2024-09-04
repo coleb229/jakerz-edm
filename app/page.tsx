@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <MainContainer layout='home'>
       <UploadBackgroundImage />
-      <h1>Jakerz EDM</h1>
+      <h1 className='text-white'>Jakerz EDM</h1>
       <p>in progress</p>
     </MainContainer>
   )
