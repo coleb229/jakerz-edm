@@ -17,7 +17,8 @@ export default async function Home() {
       className='h-screen w-screen m-0 p-0'
     >
       <UploadBackgroundImage />
-      <h1>Hello Jakerz</h1>
+      <h1>Jakerz EDM</h1>
+      <p>in progress</p>
     </main>
   )
 }

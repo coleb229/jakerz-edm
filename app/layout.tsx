@@ -14,12 +14,11 @@ const theme = createTheme({
   /** Put your mantine theme override here */
 });
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const layout = await fetchLayout('home')
   
   return (
     <html lang="en">
