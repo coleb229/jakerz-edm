@@ -22,10 +22,11 @@ export async function POST(request: Request) {
       Expires: 600, // Seconds before the presigned post expires. 3600 by default.
     })
 
-    prisma.layout.update({
+    await prisma.layout.update({
       where: { location: 'home' },
-      data: { background: process.env.NEXT_PUBLIC_BASE_URL + fields.key },
+      data: { background: url + fields.key },
     })
+    console.log('Updated layout background:', url + fields.key)
 
     return Response.json({ url, fields })
   } catch (error) {
