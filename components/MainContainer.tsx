@@ -1,20 +1,20 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { fetchLayout } from '@/lib/db'
 
 export const MainContainer = ({ children, layout }: { children: React.ReactNode, layout: any }) => {
-
-  const cacheBuster = new Date().getTime();
 
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchBackgroundImage = () => {
-      const imageUrl = layout.background;
+    const fetchBackgroundImage = async () => {
+      let imageUrl = await fetchLayout(layout);
+      imageUrl = imageUrl.background;
       const cacheBuster = new Date().getTime(); // Unique timestamp
       setBackgroundImage(`${imageUrl}?v=${cacheBuster}`);
     };
 
-    fetchBackgroundImage();
+  fetchBackgroundImage();
   }, []);
 
   return (

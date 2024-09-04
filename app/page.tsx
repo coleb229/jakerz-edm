@@ -9,7 +9,7 @@ export default async function Home() {
   })
 
   return (
-    <MainContainer layout={layout}>
+    <MainContainer layout='home'>
       <UploadBackgroundImage />
       <h1>Jakerz EDM</h1>
       <p>in progress</p>
