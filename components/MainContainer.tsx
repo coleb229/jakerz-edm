@@ -8,8 +8,8 @@ export const MainContainer = ({ children, layout }: { children: React.ReactNode,
 
   useEffect(() => {
     const fetchBackgroundImage = async () => {
-      let imageUrl = await fetchLayout(layout);
-      imageUrl = imageUrl.background;
+      const layoutObj = await fetchLayout(layout);
+      const imageUrl = layoutObj.background;
       const cacheBuster = new Date().getTime(); // Unique timestamp
       setBackgroundImage(`${imageUrl}?v=${cacheBuster}`);
     };
