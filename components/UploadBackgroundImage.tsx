@@ -55,7 +55,7 @@ export const UploadBackgroundImage = () => {
   }
 
   return (
-    <main>
+    <div>
       <h1>Upload a File to S3</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -73,6 +73,6 @@ export const UploadBackgroundImage = () => {
           Upload
         </button>
       </form>
-    </main>
+    </div>
   )
 }

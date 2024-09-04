@@ -4,7 +4,6 @@ import '@mantine/dates/styles.css';
 import '@mantine/dropzone/styles.css';
 import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { fetchLayout } from '@/lib/db'
-import Image from 'next/image'
 
 export const metadata = {
   title: 'Next.js',
@@ -36,13 +35,6 @@ export default async function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme}>
-          <Image
-            src={layout.background}
-            width={1920}
-            height={1080}
-            className='absolute inset-0 z-[-1]'
-            alt="Background Image"
-          />
           {children}
         </MantineProvider>
       </body>

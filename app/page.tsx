@@ -1,6 +1,5 @@
 'use server'
 import { prisma } from '@/lib/prisma'
-import Image from 'next/image'
 import { UploadBackgroundImage } from '@/components/UploadBackgroundImage'
 
 export default async function Home() {
@@ -9,7 +8,14 @@ export default async function Home() {
   })
 
   return (
-    <main className={`bg-[url(${layout.background})]`}>
+    <main
+      style={{
+        backgroundImage: `url(${layout.background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className='h-screen w-screen m-0 p-0'
+    >
       <UploadBackgroundImage />
       <h1>Hello Jakerz</h1>
     </main>
