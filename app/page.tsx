@@ -6,11 +6,12 @@ export default async function Home() {
   const layout = await prisma.layout.findUnique({
     where: { location: 'home' },
   })
+  const cacheBuster = new Date().getTime();
 
   return (
     <main
       style={{
-        backgroundImage: `url(${layout.background})`,
+        backgroundImage: `url(${layout.background}?v=${cacheBuster})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
