@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   webpack(config) {
-    config.cache = false;
+    config.ignoreWarnings = [/Serializing big strings/];
     return config;
   },
 }
