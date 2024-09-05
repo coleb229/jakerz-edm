@@ -3,7 +3,9 @@ import '@mantine/core/styles.css';
 import '@mantine/dates/styles.css';
 import '@mantine/dropzone/styles.css';
 import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core'
-import { fetchLayout } from '@/lib/db'
+import { SideNav } from '@/components/SideNav/SideNav';
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export const metadata = {
   title: 'Next.js',
@@ -11,14 +13,15 @@ export const metadata = {
 }
 
 const theme = createTheme({
-  // fucking mantine is ass
+  // mantine is annoying
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getServerSession(authOptions);
   
   return (
     <html lang="en">
@@ -34,6 +37,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <SideNav session={session} />
           {children}
         </MantineProvider>
       </body>

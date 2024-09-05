@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'jakerz-edm.s3.us-east-2.amazonaws.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      }
     ],
   },
   webpack(config) {
