@@ -11,7 +11,7 @@ export const metadata = {
 }
 
 const theme = createTheme({
-  /** Put your mantine theme override here */
+  // fucking mantine is ass
 });
 
 export default function RootLayout({

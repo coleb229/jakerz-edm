@@ -1,0 +1,5 @@
+.element {
+  &:hover {
+    background-color: rgb(30 41 59);
+  }
+}
