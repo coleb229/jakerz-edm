@@ -17,7 +17,7 @@ export const UploadBackgroundImage = () => {
     setUploading(true)
 
     const response = await fetch(
-      process.env.NEXT_PUBLIC_BASE_URL + '/api/uploadBackground',
+      process.env.NEXT_PUBLIC_BASE_URL + '/settings/api/uploadBackground',
       {
         method: 'POST',
         headers: {
