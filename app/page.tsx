@@ -1,6 +1,5 @@
 'use server'
 import { prisma } from '@/lib/prisma'
-import { UploadBackgroundImage } from '@/components/UploadBackgroundImage'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'

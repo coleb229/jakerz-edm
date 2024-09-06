@@ -3,8 +3,6 @@ import { useState } from 'react'
 import { Group, Text, rem, Button } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
-import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
 import { useRouter } from 'next/navigation';
 
 export const UploadBackgroundImage = (props: Partial<DropzoneProps>) => {
