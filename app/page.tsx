@@ -11,11 +11,12 @@ export default async function Home() {
   })
   const session = await getServerSession(authOptions)
   const user = session?.user
+  console.log('session:', session)
 
   const users = await prisma.user.findMany()
 
   // Create user if none with session's email exists
-  if(users.filter(u => u.email === user.email).length === 0) {
+  if(session !== null && users.filter(u => u.email === user.email).length === 0) {
     await prisma.user.create({
       data: {
         email: user.email,
