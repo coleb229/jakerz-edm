@@ -7,19 +7,23 @@ import { BiSolidVideos } from "react-icons/bi";
 import { FaCalendarDays } from "react-icons/fa6";
 import { GrContact } from "react-icons/gr";
 import styles from './SettingsStack.module.css';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 export const SettingsStack = () => {
+  const [activeTab, setActiveTab] = useState<string | null>('home');
+  
   const iconStyle = {
     width: 24,
     height: 24,
   };
 
   return (
-    <Tabs defaultValue="home" className={styles.container}>
+    <Tabs value={activeTab} onChange={setActiveTab} className={styles.container}>
       <Tabs.List className={styles.list}>
         <Tabs.Tab
           value="home"
-          className={styles.tab}
+          className={clsx(styles.tab, activeTab === 'home' && styles.active)}
           leftSection={<GrHomeRounded
           style={iconStyle} />}
         >
@@ -27,28 +31,28 @@ export const SettingsStack = () => {
         </Tabs.Tab>
         <Tabs.Tab
           value="shows"
-          className={styles.tab}
+          className={clsx(styles.tab, activeTab === 'shows' && styles.active)}
           leftSection={<FaCalendarDays style={iconStyle} />}
         >
           Shows
         </Tabs.Tab>
         <Tabs.Tab
           value="gallery"
-          className={styles.tab}
+          className={clsx(styles.tab, activeTab === 'gallery' && styles.active)}
           leftSection={<GrGallery style={iconStyle} />}
         >
           Gallery
         </Tabs.Tab>
         <Tabs.Tab
           value="videos"
-          className={styles.tab}
+          className={clsx(styles.tab, activeTab === 'videos' && styles.active)}
           leftSection={<BiSolidVideos style={iconStyle} />}
         >
           Videos
         </Tabs.Tab>
         <Tabs.Tab
           value="contact"
-          className={styles.tab}
+          className={clsx(styles.tab, activeTab === 'contact' && styles.active)}
           leftSection={<GrContact style={iconStyle} />}
         >
           Contact
@@ -63,24 +67,56 @@ export const SettingsStack = () => {
           justify="center"
           gap="md"
         >
-          <UploadBackgroundImage />
+          <UploadBackgroundImage location='home' />
         </Stack>
       </Tabs.Panel>
 
       <Tabs.Panel value="shows">
-        Shows tab content
+      <Stack
+          className={styles.stack}
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="md"
+        >
+          <UploadBackgroundImage location='shows' />
+        </Stack>
       </Tabs.Panel>
 
       <Tabs.Panel value="gallery">
-        Gallery tab content
+      <Stack
+          className={styles.stack}
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="md"
+        >
+          <UploadBackgroundImage location='gallery' />
+        </Stack>
       </Tabs.Panel>
 
       <Tabs.Panel value="videos">
-        Videos tab content
+        <Stack
+          className={styles.stack}
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="md"
+        >
+          <UploadBackgroundImage location='videos' />
+        </Stack>
       </Tabs.Panel>
 
       <Tabs.Panel value="contact">
-        Contact tab content
+        <Stack
+          className={styles.stack}
+          bg="var(--mantine-color-body)"
+          align="stretch"
+          justify="center"
+          gap="md"
+        >
+          <UploadBackgroundImage location='contact' />
+        </Stack>
       </Tabs.Panel>
     </Tabs>
   );

@@ -21,7 +21,7 @@ model User {
   image    String?
 }
 
-model Layout {
+model PageParams {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   location String @unique
   background String

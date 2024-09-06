@@ -6,7 +6,7 @@ import { authOptions } from '@/lib/auth'
 import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
 
 export default async function Home() {
-  const layout = await prisma.layout.findUnique({
+  const layout = await prisma.pageParams.findUnique({
     where: { location: 'home' },
   })
   const session = await getServerSession(authOptions)

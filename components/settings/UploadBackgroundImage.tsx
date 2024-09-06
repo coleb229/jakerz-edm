@@ -6,7 +6,7 @@ import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useRouter } from 'next/navigation';
 import { useDisclosure } from '@mantine/hooks';
 
-export const UploadBackgroundImage = (props: Partial<DropzoneProps>) => {
+export const UploadBackgroundImage = ({ location }:any, props: Partial<DropzoneProps>) => {
   const router = useRouter()
   const [file, setFile] = useState<File | null>(null)
   const [uploading, setUploading] = useState(false)
@@ -29,7 +29,7 @@ export const UploadBackgroundImage = (props: Partial<DropzoneProps>) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ filename: file.name, contentType: file.type }),
+        body: JSON.stringify({ filename: file.name, contentType: file.type, location }),
       }
     )
 

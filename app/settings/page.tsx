@@ -6,7 +6,7 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 
 export default async function Page() {
-  const layout = await prisma.layout.findUnique({
+  const layout = await prisma.pageParams.findUnique({
     where: { location: 'home' },
   })
 

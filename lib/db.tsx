@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 
 export const fetchLayout = async(location: string) => {
   try {
-    const layout = await prisma.layout.findUnique({
+    const layout = await prisma.pageParams.findUnique({
       where: { location },
     })
 

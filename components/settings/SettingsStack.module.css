@@ -3,6 +3,12 @@
   &:hover {
     color: black;
   }
+  &:active {
+    color: black;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
 }
 
 .panel {
@@ -22,4 +28,11 @@
 .stack {
   height: 100%;
   padding: 100px 0
+}
+
+.active {
+  color: black;
+  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
