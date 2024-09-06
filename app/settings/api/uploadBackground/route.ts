@@ -1,5 +1,5 @@
 import { createPresignedPost } from '@aws-sdk/s3-presigned-post'
-import { S3Client } from '@aws-sdk/client-s3'
+import { DeleteObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { v4 as uuidv4 } from 'uuid'
 import { prisma } from '@/lib/prisma'
 
@@ -21,6 +21,17 @@ export async function POST(request: Request) {
       },
       Expires: 600, // Seconds before the presigned post expires. 3600 by default.
     })
+    const previousPost = await prisma.layout.findUnique({
+      where: { location: 'home' },
+    })
+    const previousKey = previousPost.background.split('/').pop()
+    console.log('Previous key:', previousKey)
+    
+    // Delete previous background image from S3
+    await client.send(new DeleteObjectCommand({
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: previousKey,
+    }))
 
     await prisma.layout.update({
       where: { location: 'home' },
