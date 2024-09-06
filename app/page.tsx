@@ -4,6 +4,7 @@ import { UploadBackgroundImage } from '@/components/UploadBackgroundImage'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
 
 export default async function Home() {
   const layout = await prisma.layout.findUnique({
@@ -29,6 +30,7 @@ export default async function Home() {
   return (
     <MainContainer layout='home'>
       <h1 className='text-white'>Jakerz EDM</h1>
+      <TwitchStreamEmbed />
       <p>in progress</p>
     </MainContainer>
   )
