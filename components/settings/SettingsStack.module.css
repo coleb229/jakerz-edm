@@ -1,0 +1,25 @@
+.tab {
+  color: white;
+  &:hover {
+    color: black;
+  }
+}
+
+.panel {
+  background-color: white;
+  max-height: 100% !important;
+  overflow-y: auto;
+}
+
+.list {
+  max-height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.stack {
+  height: 100%;
+  padding: 100px 0
+}

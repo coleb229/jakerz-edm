@@ -1,6 +1,6 @@
 'use server'
 import { prisma } from '@/lib/prisma'
-import { UploadBackgroundImage } from '@/components/UploadBackgroundImage'
+import { SettingsStack } from '@/components/settings/SettingsStack'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
@@ -11,13 +11,13 @@ export default async function Page() {
   })
 
   const session = await getServerSession(authOptions)
-  const user = session?.user
+  const user = session !== null ? session?.user : { email: 'none', name: 'none', image: 'none' }
 
   const userProfile = await prisma.user.findUnique({
     where: { email: user.email }
   })
 
-  if (userProfile.role !== 'ADMIN') {
+  if (!userProfile || userProfile.role !== 'ADMIN') {
     return (
       <MainContainer layout='home'>
         <h1 className='text-white'>Access Denied</h1>
@@ -26,9 +26,8 @@ export default async function Page() {
   } else {
     return (
       <MainContainer layout='home'>
-        <UploadBackgroundImage />
-        <h1 className='text-white'>Jakerz EDM</h1>
-        <p>in progress</p>
+        <h1 className='text-white'>Settings</h1>
+        <SettingsStack />
       </MainContainer>
     )
   }
