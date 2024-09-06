@@ -2,6 +2,8 @@ import { createPresignedPost } from '@aws-sdk/s3-presigned-post'
 import { DeleteObjectCommand, S3Client } from '@aws-sdk/client-s3'
 import { v4 as uuidv4 } from 'uuid'
 import { prisma } from '@/lib/prisma'
+import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 export async function POST(request: Request) {
   const { filename, contentType } = await request.json()

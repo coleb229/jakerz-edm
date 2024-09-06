@@ -1,8 +1,14 @@
 'use client'
-
 import { useState } from 'react'
+import { Group, Text, rem, Button } from '@mantine/core';
+import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
+import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
+import { useRouter } from 'next/navigation';
 
-export const UploadBackgroundImage = () => {
+export const UploadBackgroundImage = (props: Partial<DropzoneProps>) => {
+  const router = useRouter()
   const [file, setFile] = useState<File | null>(null)
   const [uploading, setUploading] = useState(false)
 
@@ -52,26 +58,62 @@ export const UploadBackgroundImage = () => {
     }
 
     setUploading(false)
+    router.push('/settings');
   }
 
   return (
     <div className='bg-slate-800 opacity-90 rounded-lg p-6'>
-      <h1 className='text-white'>Upload a File to S3</h1>
-      <form onSubmit={handleSubmit} className='bg-white p-6'>
-        <input
-          id="file"
-          type="file"
-          onChange={(e) => {
-            const files = e.target.files
-            if (files) {
-              setFile(files[0])
-            }
-          }}
-          accept="image/png, image/jpeg"
-        />
-        <button type="submit" disabled={uploading}>
+      <form onSubmit={handleSubmit}>
+        <Dropzone
+          onDrop={(files) => setFile(files[0])}
+          onReject={(files) => console.log('rejected files', files)}
+          maxSize={5 * 1024 ** 2}
+          maxFiles={1}
+          accept={IMAGE_MIME_TYPE}
+          id='file'
+          {...props}
+        >
+          <Group justify="center" gap="xl" mih={220} style={{ pointerEvents: 'none' }}>
+            <Dropzone.Accept>
+              <IconUpload
+                style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-blue-6)' }}
+                stroke={1.5}
+              />
+            </Dropzone.Accept>
+            <Dropzone.Reject>
+              <IconX
+                style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-red-6)' }}
+                stroke={1.5}
+              />
+            </Dropzone.Reject>
+            <Dropzone.Idle>
+              <IconPhoto
+                style={{ width: rem(52), height: rem(52), color: 'var(--mantine-color-dimmed)' }}
+                stroke={1.5}
+              />
+            </Dropzone.Idle>
+
+            <div>
+              <Text size="xl" inline>
+                Drag images here or click to select files
+              </Text>
+              <Text size="sm" c="dimmed" inline mt={7}>
+                Attach as many files as you like, each file should not exceed 5mb
+              </Text>
+            </div>
+          </Group>
+        </Dropzone>
+        <p className='text-white text-center mt-4'>{file ? file.name : 'No file selected'}</p>
+        <Button
+          type="submit"
+          variant="light"
+          color="blue"
+          fullWidth
+          loading={uploading}
+          disabled={uploading}
+        >
           Upload
-        </button>
+        </Button>
       </form>
     </div>
   )

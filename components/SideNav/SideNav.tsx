@@ -1,6 +1,6 @@
 'use client'
 import { useDisclosure } from '@mantine/hooks';
-import { BackgroundImage, Burger, NavLink } from '@mantine/core';
+import { Burger, NavLink, Avatar } from '@mantine/core';
 import { GrHomeRounded } from "react-icons/gr";
 import { GrGallery } from "react-icons/gr";
 import { BiSolidVideos } from "react-icons/bi";
@@ -23,12 +23,10 @@ export const SideNav = ({ session }:any) => {
             href='api/auth/signout'
             className={styles.element}
             label={
-              <Image
+              <Avatar
                 src={session.user.image}
                 alt={session.user.name}
-                width={50}
-                height={50}
-                className='rounded-full'
+                size='lg'
               />
             }
           />
