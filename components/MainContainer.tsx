@@ -25,6 +25,7 @@ export const MainContainer = ({ children, layout }: { children: React.ReactNode,
         backgroundPosition: 'center',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        padding: '20px 10px'
       }}
       className='max-h-screen w-screen overflow-auto m-0 p-0'
     >

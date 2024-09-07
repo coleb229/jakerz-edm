@@ -13,7 +13,6 @@ export const metadata = {
 }
 
 const theme = createTheme({
-  // mantine is annoying
 });
 
 export default async function RootLayout({

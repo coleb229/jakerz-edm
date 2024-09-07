@@ -8,7 +8,9 @@ export const VideoStack = ({ data }:any) => {
       bg="var(--mantine-color-body)"
       align="stretch"
       justify="flex-start"
+      pb={20}
       gap="md"
+      className='mb-20'
     >
       {data.map((video:any) => (
         <VideoContainer key={video.id} data={video} />

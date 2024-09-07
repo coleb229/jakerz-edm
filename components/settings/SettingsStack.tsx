@@ -63,7 +63,7 @@ export const SettingsStack = () => {
       <Tabs.Panel value="home" className={styles.panel}>
         <Stack
           className={styles.stack}
-          bg="var(--mantine-color-body)"
+          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -75,7 +75,7 @@ export const SettingsStack = () => {
       <Tabs.Panel value="shows">
       <Stack
           className={styles.stack}
-          bg="var(--mantine-color-body)"
+          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -87,7 +87,7 @@ export const SettingsStack = () => {
       <Tabs.Panel value="gallery">
       <Stack
           className={styles.stack}
-          bg="var(--mantine-color-body)"
+          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -99,7 +99,7 @@ export const SettingsStack = () => {
       <Tabs.Panel value="videos">
         <Stack
           className={styles.stack}
-          bg="var(--mantine-color-body)"
+          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -109,10 +109,10 @@ export const SettingsStack = () => {
         </Stack>
       </Tabs.Panel>
 
-      <Tabs.Panel value="contact">
+      <Tabs.Panel value="contact" className={styles.panel}>
         <Stack
           className={styles.stack}
-          bg="var(--mantine-color-body)"
+          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"

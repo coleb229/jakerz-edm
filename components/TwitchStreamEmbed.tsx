@@ -44,8 +44,9 @@ export const TwitchStreamEmbed = () => {
                 dimensions.width - 640  
               )
             }
-          style={{}}
+          style={{ border: 'none' }}
           allowFullScreen={true}
+          title="Twitch Stream"
         />
       </Center>
     </Box>
