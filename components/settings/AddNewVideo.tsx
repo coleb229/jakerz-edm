@@ -36,7 +36,7 @@ const Form = () => {
     setUploading(true);
   
     const formData = {
-      title: e.currentTarget.title.valueOf, //this is fucking fine
+      title: e.currentTarget.vidTitle.value,
       url: e.currentTarget.url.value,
       location: e.currentTarget.location.value,
       date: e.currentTarget.date.value,
@@ -86,7 +86,7 @@ const Form = () => {
     <form onSubmit={handleSubmit}>
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Video Title ={'>'}</Text>
-        <TextInput placeholder="Video Title" required name='title' />
+        <TextInput placeholder="Video Title" required name='vidTitle' />
       </div>
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Video URL ={'>'}</Text>
