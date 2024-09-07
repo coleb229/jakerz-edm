@@ -3,11 +3,10 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
-    where: { location: 'home' },
+    where: { location: 'shows' },
   })
   const session = await getServerSession(authOptions)
   const user = session?.user
@@ -26,10 +25,9 @@ export default async function Home() {
   }
 
   return (
-    <MainContainer layout='home'>
+    <MainContainer layout='shows'>
       <h1 className='text-white'>Jakerz EDM</h1>
-      <TwitchStreamEmbed />
-      <p>in progress</p>
+      <p className='text-white'>in progress</p>
     </MainContainer>
   )
 }

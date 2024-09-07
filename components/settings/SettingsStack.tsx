@@ -1,6 +1,7 @@
 'use client'
 import { Tabs, Stack } from '@mantine/core';
 import { UploadBackgroundImage } from './UploadBackgroundImage';
+import { AddNewVideo } from './AddNewVideo';
 import { GrHomeRounded } from "react-icons/gr";
 import { GrGallery } from "react-icons/gr";
 import { BiSolidVideos } from "react-icons/bi";
@@ -104,6 +105,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='videos' />
+          <AddNewVideo />
         </Stack>
       </Tabs.Panel>
 

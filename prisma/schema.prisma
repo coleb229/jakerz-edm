@@ -26,3 +26,21 @@ model PageParams {
   location String @unique
   background String
 }
+
+model ShowDate {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  date     String
+  time     String
+  location String
+  name     String
+}
+
+model Video {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  url      String
+  location String
+  date     String
+  description String
+  background String
+}

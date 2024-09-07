@@ -3,11 +3,11 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
+import { VideoStack } from '@/components/videos/VideoStack'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
-    where: { location: 'home' },
+    where: { location: 'videos' },
   })
   const session = await getServerSession(authOptions)
   const user = session?.user
@@ -25,11 +25,12 @@ export default async function Home() {
     })
   }
 
+  const data = await prisma.video.findMany()
+
   return (
-    <MainContainer layout='home'>
-      <h1 className='text-white'>Jakerz EDM</h1>
-      <TwitchStreamEmbed />
-      <p>in progress</p>
+    <MainContainer layout='videos'>
+      <h1 className='text-white'>Videos</h1>
+      {data.length > 0 ? <VideoStack data={data} /> : <p className='text-white'>No videos found</p>}
     </MainContainer>
   )
 }
