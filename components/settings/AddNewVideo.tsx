@@ -36,7 +36,7 @@ const Form = () => {
     setUploading(true);
   
     const formData = {
-      title: e.currentTarget.title.value, //this is fucking fine
+      title: e.currentTarget.title.valueOf, //this is fucking fine
       url: e.currentTarget.url.value,
       location: e.currentTarget.location.value,
       date: e.currentTarget.date.value,
