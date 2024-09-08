@@ -8,46 +8,43 @@ import { FaCalendarDays } from "react-icons/fa6";
 import { GrContact } from "react-icons/gr";
 import { FaKey } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
-import Image from 'next/image';
 import styles from './SideNav.module.css';
 
 export const SideNav = ({ session }:any) => {
   const [opened, { toggle }] = useDisclosure();
   return (
     <div className='fixed top-0 left-0 bg-slate-800 h-full p-4 flex flex-col items-center'>
-      <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" size='xl' color='white' className='hover:bg-slate-800' />
+      <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" size='lg' color='white' className={styles.navLink} />
       {opened ? <OpenNav /> : <ClosedNav />}
       <div className='items-center'>
         {session ? (
           <NavLink
+            className={styles.navLinkChild}  
             href='api/auth/signout'
-            className={styles.element}
             label={
               <Avatar
                 src={session.user.image}
                 alt={session.user.name}
-                size='lg'
+                size='md'
               />
             }
           />
         ) : (
           opened ? (
-            <div className='text-white'>
+            <div className={styles.navLink}>
               <NavLink
                 href='api/auth/signin'
-                className={styles.element}
-                color='white'
+                className={styles.navLinkChild}
                 label={<p className='text-xl'>Sign In</p>}
                 leftSection={<FaKey className='h-6 w-6' />}
               />
             </div>
           ) : (
-            <div className='text-white'>
+            <div className={styles.navLink}>
               <NavLink
                 href='api/auth/signin'
-                className={styles.element}
-                color='white'
-                label={<FaKey className='h-10 w-10' />}
+                className={styles.navLinkChild}
+                label={<FaKey className='h-6 w-6' />}
               />
             </div>
           )
@@ -60,50 +57,50 @@ export const SideNav = ({ session }:any) => {
 const OpenNav = () => {
   return (
     <div className='flex flex-col justify-around h-full'>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/'
-          className={styles.element}
           label={<p className='text-xl'>Home</p>}
           leftSection={<GrHomeRounded className='h-6 w-6' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/shows'
-          className={styles.element}
           label={<p className='text-xl'>Show Dates</p>}
           leftSection={<FaCalendarDays className='h-6 w-6' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/gallery'
-          className={styles.element}
           label={<p className='text-xl'>Gallery</p>}
           leftSection={<GrGallery className='h-6 w-6' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/videos'
-          className={styles.element}
           label={<p className='text-xl'>Videos</p>}
           leftSection={<BiSolidVideos className='w-6 h-6' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/contact'
-          className={styles.element}
           label={<p className='text-xl'>Contact</p>}
           leftSection={<GrContact className='h-6 w-6' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/settings'
-          className={styles.element}
           label={<p className='text-xl'>Settings</p>}
           leftSection={<IoMdSettings className='h-6 w-6' />}
         />
@@ -115,46 +112,46 @@ const OpenNav = () => {
 const ClosedNav = () => {
   return (
     <div className='flex flex-col justify-around h-full items-center'>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/'
-          className={styles.element}
-          label={<GrHomeRounded className='h-10 w-10' />}
+          label={<GrHomeRounded className='h-8 w-8' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/shows'
-          className={styles.element}
-          label={<FaCalendarDays className='h-10 w-10' />}
+          label={<FaCalendarDays className='h-8 w-8' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/gallery'
-          className={styles.element}
-          label={<GrGallery className='h-10 w-10' />}
+          label={<GrGallery className='h-8 w-8' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/videos'
-          className={styles.element}
-          label={<BiSolidVideos className='h-10 w-10' />}
+          label={<BiSolidVideos className='h-8 w-8' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/contact'
-          className={styles.element}
-          label={<GrContact className='h-10 w-10' />}
+          label={<GrContact className='h-8 w-8' />}
         />
       </div>
-      <div className='text-white'>
+      <div className={styles.navLink}>
         <NavLink
+          className={styles.navLinkChild}
           href='/settings'
-          className={styles.element}
-          label={<IoMdSettings className='h-10 w-10' />}
+          label={<IoMdSettings className='h-8 w-8' />}
         />
       </div>
     </div>

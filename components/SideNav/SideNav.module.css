@@ -1,4 +1,13 @@
-.element {
+.navLink {
+  color: white;
+  &:hover {
+    scale: 1.1;
+    background-color: rgb(30 41 59) !important;
+    transition: ease-in-out 0.2s;
+  }
+}
+
+.navLinkChild {
   &:hover {
     background-color: rgb(30 41 59) !important;
   }
