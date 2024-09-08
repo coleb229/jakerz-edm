@@ -63,7 +63,6 @@ export const SettingsStack = () => {
       <Tabs.Panel value="home" className={styles.panel}>
         <Stack
           className={styles.stack}
-          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -75,7 +74,6 @@ export const SettingsStack = () => {
       <Tabs.Panel value="shows">
       <Stack
           className={styles.stack}
-          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -87,7 +85,6 @@ export const SettingsStack = () => {
       <Tabs.Panel value="gallery">
       <Stack
           className={styles.stack}
-          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -99,7 +96,6 @@ export const SettingsStack = () => {
       <Tabs.Panel value="videos">
         <Stack
           className={styles.stack}
-          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"
@@ -112,7 +108,6 @@ export const SettingsStack = () => {
       <Tabs.Panel value="contact" className={styles.panel}>
         <Stack
           className={styles.stack}
-          bg="slategrey"
           align="stretch"
           justify="center"
           gap="md"

@@ -1,5 +1,6 @@
 .tab {
   color: white;
+  background-color: rgb(15 23 42);
   &:hover {
     color: black;
   }
@@ -28,6 +29,10 @@
   height: 100%;
   padding: 100px 0;
   opacity: 90%;
+  color: white;
+  background-color: rgb(30 41 59);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .active {
