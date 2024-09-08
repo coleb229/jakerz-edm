@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import { ShowsTable } from '@/components/shows/ShowsTable'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -24,10 +25,14 @@ export default async function Home() {
     })
   }
 
+  const data = await prisma.showDate.findMany({
+    orderBy: { date: 'asc' },
+  })
+
   return (
     <MainContainer layout='shows'>
-      <h1 className='text-white'>Jakerz EDM</h1>
-      <p className='text-white'>in progress</p>
+      <h1 className='text-white'>Upcoming Show Dates</h1>
+      {data.length > 0 ? <ShowsTable data={data} /> : <p className='text-white'>No shows scheduled</p>}
     </MainContainer>
   )
 }

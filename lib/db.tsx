@@ -13,3 +13,21 @@ export const fetchLayout = async(location: string) => {
     return null
   }
 }
+
+export const addShowDate = async(formData:FormData) => {
+  try {
+    const newShowDate = await prisma.showDate.create({
+      data: {
+        date: formData.get('date') as string,
+        time: formData.get('time') as string,
+        name: formData.get('name') as string,
+        location: formData.get('location') as string,
+      }
+    })
+
+    return newShowDate
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}

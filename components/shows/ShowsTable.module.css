@@ -1,0 +1,10 @@
+.tableHead {
+  color: white;
+  background-color: rgb(15 23 42);
+}
+
+.tableBody {
+  color: white;
+  background-color: rgb(30 41 59);
+  opacity: 90%;
+}

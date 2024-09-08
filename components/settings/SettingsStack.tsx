@@ -10,6 +10,7 @@ import { GrContact } from "react-icons/gr";
 import styles from './SettingsStack.module.css';
 import { useState } from 'react';
 import clsx from 'clsx';
+import { AddNewShowDate } from './AddNewShowDate';
 
 export const SettingsStack = () => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
@@ -79,6 +80,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='shows' />
+          <AddNewShowDate />
         </Stack>
       </Tabs.Panel>
 
