@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import { ImageGalleryTable } from '@/components/gallery/ImageGalleryTable'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -24,10 +25,13 @@ export default async function Home() {
     })
   }
 
+  const data = await prisma.galleryImage.findMany({})
+
   return (
     <MainContainer layout='gallery'>
-      <h1 className='text-white'>Jakerz EDM</h1>
+      <h1 className='text-white'>Image Gallery</h1>
       <p className='text-white'>in progress</p>
+      <ImageGalleryTable data={data} />
     </MainContainer>
   )
 }

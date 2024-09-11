@@ -11,6 +11,7 @@ import styles from './SettingsStack.module.css';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { AddNewShowDate } from './AddNewShowDate';
+import { AddNewPicturesToGallery } from './gallery/AddNewPicturesToGallery';
 
 export const SettingsStack = () => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
@@ -92,6 +93,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='gallery' />
+          <AddNewPicturesToGallery />
         </Stack>
       </Tabs.Panel>
 

@@ -25,6 +25,8 @@ model PageParams {
   id       String  @id @default(auto()) @map("_id") @db.ObjectId
   location String @unique
   background String
+  headerText String?
+  subheaderText String?
 }
 
 model ShowDate {
@@ -43,4 +45,11 @@ model Video {
   date     String
   description String
   background String
+}
+
+model GalleryImage {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  url      String
+  title   String
+  description String
 }
