@@ -12,7 +12,7 @@ export const ImageGalleryTable = ({ data }:any) => {
         <div className='px-40 py-20'>
           <SimpleGrid cols={4}>
             {data.map((item:any) => (
-              <ImageContainer item={item} />
+              <ImageContainer item={item} key={item.id} />
             ))}
           </SimpleGrid>
         </div>
@@ -35,7 +35,7 @@ const ImageContainer = ({ item }:any) => {
   
   return (
     <>
-      <Card shadow="sm" padding="lg" radius="md" withBorder key={item.id} className={styles.card}>
+      <Card shadow="sm" padding="lg" radius="md" withBorder className={styles.card}>
         <button onClick={toggle}>
           <Card.Section>
             <Image
