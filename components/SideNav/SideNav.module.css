@@ -12,3 +12,7 @@
     background-color: rgb(30 41 59) !important;
   }
 }
+
+.container {
+  z-index: 100;
+}

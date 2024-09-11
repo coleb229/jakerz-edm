@@ -12,6 +12,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { AddNewShowDate } from './AddNewShowDate';
 import { AddNewPicturesToGallery } from './gallery/AddNewPicturesToGallery';
+import { ChangeHeader } from './ChangeHeader';
 
 export const SettingsStack = () => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
@@ -70,6 +71,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='home' />
+          <ChangeHeader page='home' />
         </Stack>
       </Tabs.Panel>
 
@@ -81,6 +83,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='shows' />
+          <ChangeHeader page='shows' />
           <AddNewShowDate />
         </Stack>
       </Tabs.Panel>
@@ -93,6 +96,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='gallery' />
+          <ChangeHeader page='gallery' />
           <AddNewPicturesToGallery />
         </Stack>
       </Tabs.Panel>
@@ -105,6 +109,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='videos' />
+          <ChangeHeader page='videos' />
           <AddNewVideo />
         </Stack>
       </Tabs.Panel>
@@ -117,6 +122,7 @@ export const SettingsStack = () => {
           gap="md"
         >
           <UploadBackgroundImage location='contact' />
+          <ChangeHeader page='contact' />
         </Stack>
       </Tabs.Panel>
     </Tabs>

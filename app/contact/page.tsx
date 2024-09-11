@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import { PageHeader } from '@/components/PageHeader'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -26,8 +27,7 @@ export default async function Home() {
 
   return (
     <MainContainer layout='contact'>
-      <h1 className='text-white'>Jakerz EDM</h1>
-      <p className='text-white'>in progress</p>
+      <PageHeader layout={layout} />
     </MainContainer>
   )
 }

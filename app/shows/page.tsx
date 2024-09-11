@@ -4,6 +4,7 @@ import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { ShowsTable } from '@/components/shows/ShowsTable'
+import { PageHeader } from '@/components/PageHeader'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -31,7 +32,7 @@ export default async function Home() {
 
   return (
     <MainContainer layout='shows'>
-      <h1 className='text-white'>Upcoming Show Dates</h1>
+      <PageHeader layout={layout} page='shows' />
       {data.length > 0 ? <ShowsTable data={data} /> : <p className='text-white'>No shows scheduled</p>}
     </MainContainer>
   )

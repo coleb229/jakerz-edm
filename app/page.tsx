@@ -4,6 +4,7 @@ import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
+import { PageHeader } from '@/components/PageHeader'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -27,9 +28,8 @@ export default async function Home() {
 
   return (
     <MainContainer layout='home'>
-      <h1 className='text-white'>Jakerz EDM</h1>
+      <PageHeader layout={layout} />
       <TwitchStreamEmbed />
-      <p>in progress</p>
     </MainContainer>
   )
 }

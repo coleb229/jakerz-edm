@@ -4,6 +4,7 @@ import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { VideoStack } from '@/components/videos/VideoStack'
+import { PageHeader } from '@/components/PageHeader'
 
 export default async function Home() {
   const layout = await prisma.pageParams.findUnique({
@@ -29,7 +30,7 @@ export default async function Home() {
 
   return (
     <MainContainer layout='videos'>
-      <h1 className='text-white'>Videos</h1>
+      <PageHeader layout={layout} />
       {data.length > 0 ? <VideoStack data={data} /> : <p className='text-white'>No videos found</p>}
     </MainContainer>
   )

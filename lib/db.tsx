@@ -31,3 +31,20 @@ export const addShowDate = async(formData:FormData) => {
     return null
   }
 }
+
+export const updatePageHeader = async(formData:FormData) => {
+  try {
+    const layout = await prisma.pageParams.update({
+      where: { location: formData.get('location') as string },
+      data: {
+        headerText: formData.get('headerText') as string,
+        subheaderText: formData.get('subtitle') as string,
+      }
+    })
+
+    return layout
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
