@@ -2,6 +2,8 @@
 import { useDisclosure } from '@mantine/hooks';
 import { Dialog, Group, Button, TextInput, Text } from '@mantine/core';
 import { updatePageHeader } from '@/lib/db';
+import { redirect } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export const ChangeHeader = ({ page }:any) => {
   const [opened, { toggle, close }] = useDisclosure(false);
@@ -25,8 +27,17 @@ export const ChangeHeader = ({ page }:any) => {
 }
 
 const Form = ({ page }:any) => {
+  const clientUpdatePageHeader = async(formData: FormData) => {
+    const result = await updatePageHeader(formData);
+    if(result?.error) {
+      toast.error('Error updating page header');
+    } else {
+      toast.success('Page Header Updated');
+    }
+    redirect('/settings');
+  }
   return (
-    <form action={updatePageHeader}>
+    <form action={clientUpdatePageHeader}>
       <input type="text" hidden name='location' value={page} />
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Main Text ={'>'}</Text>

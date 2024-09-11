@@ -6,6 +6,8 @@ import { createTheme, MantineProvider, ColorSchemeScript } from '@mantine/core'
 import { SideNav } from '@/components/SideNav/SideNav';
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: 'Next.js',
@@ -38,6 +40,7 @@ export default async function RootLayout({
         <MantineProvider theme={theme}>
           <SideNav session={session} />
           {children}
+          <ToastContainer />
         </MantineProvider>
       </body>
     </html>

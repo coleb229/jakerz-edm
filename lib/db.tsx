@@ -16,7 +16,7 @@ export const fetchLayout = async(location: string) => {
 
 export const addShowDate = async(formData:FormData) => {
   try {
-    const newShowDate = await prisma.showDate.create({
+    await prisma.showDate.create({
       data: {
         date: formData.get('date') as string,
         time: formData.get('time') as string,
@@ -25,26 +25,27 @@ export const addShowDate = async(formData:FormData) => {
       }
     })
 
-    return newShowDate
   } catch (error) {
     console.error(error)
-    return null
+    return {
+      error: 'Error adding show date'
+    }
   }
 }
 
 export const updatePageHeader = async(formData:FormData) => {
   try {
-    const layout = await prisma.pageParams.update({
+    await prisma.pageParams.update({
       where: { location: formData.get('location') as string },
       data: {
         headerText: formData.get('headerText') as string,
         subheaderText: formData.get('subtitle') as string,
       }
     })
-
-    return layout
   } catch (error) {
     console.error(error)
-    return null
+    return {
+      error: 'Error updating page header'
+    }
   }
 }

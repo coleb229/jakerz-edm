@@ -1,6 +1,8 @@
 import { useDisclosure } from '@mantine/hooks';
 import { Dialog, Group, Button, TextInput, Text } from '@mantine/core';
 import { addShowDate } from '@/lib/db';
+import { toast } from 'react-toastify';
+import { redirect } from 'next/navigation';
 
 export const AddNewShowDate = () => {
   const [opened, { toggle, close }] = useDisclosure(false);
@@ -24,8 +26,17 @@ export const AddNewShowDate = () => {
 }
 
 const Form = () => {
+  const clientAddShowDate = async(formData: FormData) => {
+    const result = await addShowDate(formData);
+    if(result?.error) {
+      toast.error('Error adding show date');
+    } else {
+      toast.success('Show Date Added');
+    }
+    redirect('/settings');
+  }
   return (
-    <form action={addShowDate}>
+    <form action={clientAddShowDate}>
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Show Name ={'>'}</Text>
         <TextInput placeholder="Show Name" required name='name' />
