@@ -49,3 +49,35 @@ export const updatePageHeader = async(formData:FormData) => {
     }
   }
 }
+
+export const updateBioHeader = async(formData:FormData) => {
+  try {
+    await prisma.pageParams.update({
+      where: { location: formData.get('location') as string },
+      data: {
+        bioHeader: formData.get('bioHeader') as string
+      }
+    })
+  } catch (error) {
+    console.error(error)
+    return {
+      error: 'Error updating bio header'
+    }
+  }
+}
+
+export const updateBioText = async(formData:FormData) => {
+  try {
+    await prisma.pageParams.update({
+      where: { location: formData.get('location') as string },
+      data: {
+        bioText: formData.get('bioText') as string
+      }
+    })
+  } catch (error) {
+    console.error(error)
+    return {
+      error: 'Error updating bio text'
+    }
+  }
+}

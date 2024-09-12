@@ -4,6 +4,7 @@ import { SettingsStack } from '@/components/settings/SettingsStack'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import Image from 'next/image'
 
 export default async function Page() {
   const layout = await prisma.pageParams.findUnique({
@@ -21,6 +22,16 @@ export default async function Page() {
     return (
       <MainContainer layout='home'>
         <h1 className='text-white'>Access Denied</h1>
+        <div className='flex flex-col items-center'>
+          <Image
+            src='https://m.media-amazon.com/images/I/61zcSevCQ1L._AC_UF1000,1000_QL80_.jpg'
+            alt='403 Access Denied'
+            className='rounded-2xl overflow-hidden shadow-2xl'
+            width={900}
+            height={900}
+          />
+          <p className='text-white text-xl py-10'>Get lost, fucker</p>
+        </div>
       </MainContainer>
     )
   } else {

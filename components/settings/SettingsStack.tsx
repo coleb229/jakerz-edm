@@ -13,6 +13,7 @@ import clsx from 'clsx';
 import { AddNewShowDate } from './AddNewShowDate';
 import { AddNewPicturesToGallery } from './gallery/AddNewPicturesToGallery';
 import { ChangeHeader } from './ChangeHeader';
+import { UpdateBioSection } from './home/UpdateBio';
 
 export const SettingsStack = () => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
@@ -72,6 +73,7 @@ export const SettingsStack = () => {
         >
           <UploadBackgroundImage location='home' />
           <ChangeHeader page='home' />
+          <UpdateBioSection />
         </Stack>
       </Tabs.Panel>
 

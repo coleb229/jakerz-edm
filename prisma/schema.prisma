@@ -27,6 +27,8 @@ model PageParams {
   background String
   headerText String?
   subheaderText String?
+  bioHeader String?
+  bioText String?
 }
 
 model ShowDate {

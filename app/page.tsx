@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
-import { TwitchStreamEmbed } from '@/components/TwitchStreamEmbed'
+import { HeroSection } from '@/components/HeroSection'
 import { PageHeader } from '@/components/PageHeader'
 
 export default async function Home() {
@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <MainContainer layout='home'>
       <PageHeader layout={layout} />
-      <TwitchStreamEmbed />
+      <HeroSection layout={layout} />
     </MainContainer>
   )
 }
