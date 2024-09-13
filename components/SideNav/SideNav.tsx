@@ -13,10 +13,10 @@ import styles from './SideNav.module.css';
 export const SideNav = ({ session }:any) => {
   const [opened, { toggle }] = useDisclosure();
   return (
-    <div className={'fixed top-0 left-0 bg-slate-800 h-full p-4 flex flex-col items-center ' + styles.container}>
-      <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" size='lg' color='white' className={styles.navLink} />
+    <div className={`fixed top-0 left-0 bg-slate-800 h-full p-4 flex flex-col items-center ${styles.container} ${opened ? styles.open : ''}`}>
+      <Burger opened={opened} ml='auto' onClick={toggle} aria-label="Toggle navigation" size='lg' color='white' className={styles.navLink} />
       {opened ? <OpenNav /> : <ClosedNav />}
-      <div className='items-center'>
+      <div className={`flex-1 ${opened ? styles.open : ''}`}>
         {session ? (
           <NavLink
             className={styles.navLinkChild}  
