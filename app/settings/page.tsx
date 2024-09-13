@@ -7,9 +7,7 @@ import { authOptions } from '@/lib/auth'
 import Image from 'next/image'
 
 export default async function Page() {
-  const layout = await prisma.pageParams.findUnique({
-    where: { location: 'home' },
-  })
+  const layout = await prisma.pageParams.findMany({})
 
   const session = await getServerSession(authOptions)
   const user = session !== null ? session?.user : { email: 'none', name: 'none', image: 'none' }
@@ -38,7 +36,7 @@ export default async function Page() {
     return (
       <MainContainer layout='home'>
         <h1 className='text-white'>Settings</h1>
-        <SettingsStack />
+        <SettingsStack layout={layout} />
       </MainContainer>
     )
   }

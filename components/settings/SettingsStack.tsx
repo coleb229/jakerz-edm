@@ -1,7 +1,7 @@
 'use client'
 import { Tabs, Stack } from '@mantine/core';
 import { UploadBackgroundImage } from './UploadBackgroundImage';
-import { AddNewVideo } from './AddNewVideo';
+import { AddNewVideo } from './videos/AddNewVideo';
 import { GrHomeRounded } from "react-icons/gr";
 import { GrGallery } from "react-icons/gr";
 import { BiSolidVideos } from "react-icons/bi";
@@ -10,18 +10,26 @@ import { GrContact } from "react-icons/gr";
 import styles from './SettingsStack.module.css';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { AddNewShowDate } from './AddNewShowDate';
+import { AddNewShowDate } from './shows/AddNewShowDate';
 import { AddNewPicturesToGallery } from './gallery/AddNewPicturesToGallery';
 import { ChangeHeader } from './ChangeHeader';
 import { UpdateBioSection } from './home/UpdateBio';
 
-export const SettingsStack = () => {
+export const SettingsStack = ({ layout }:any) => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
   
   const iconStyle = {
     width: 24,
     height: 24,
   };
+
+  const layouts = {
+    home: layout[0],
+    shows: layout[1],
+    gallery: layout[2],
+    videos: layout[3],
+    contact: layout[4],
+  }
 
   return (
     <Tabs value={activeTab} onChange={setActiveTab} className={styles.container}>
@@ -73,8 +81,8 @@ export const SettingsStack = () => {
           px={40}
         >
           <UploadBackgroundImage location='home' />
-          <ChangeHeader page='home' />
-          <UpdateBioSection />
+          <ChangeHeader page='home' layout={layouts.home} />
+          <UpdateBioSection layout={layouts.home} />
         </Stack>
       </Tabs.Panel>
 
@@ -87,7 +95,7 @@ export const SettingsStack = () => {
           px={40}
         >
           <UploadBackgroundImage location='shows' />
-          <ChangeHeader page='shows' />
+          <ChangeHeader layout={layouts.shows} page='shows' />
           <AddNewShowDate />
         </Stack>
       </Tabs.Panel>
@@ -101,7 +109,7 @@ export const SettingsStack = () => {
           px={40}
         >
           <UploadBackgroundImage location='gallery' />
-          <ChangeHeader page='gallery' />
+          <ChangeHeader layout={layouts.gallery} page='gallery' />
           <AddNewPicturesToGallery />
         </Stack>
       </Tabs.Panel>
@@ -115,7 +123,7 @@ export const SettingsStack = () => {
           px={40}
         >
           <UploadBackgroundImage location='videos' />
-          <ChangeHeader page='videos' />
+          <ChangeHeader layout={layouts.videos} page='videos' />
           <AddNewVideo />
         </Stack>
       </Tabs.Panel>
@@ -129,7 +137,7 @@ export const SettingsStack = () => {
           px={40}
         >
           <UploadBackgroundImage location='contact' />
-          <ChangeHeader page='contact' />
+          <ChangeHeader layout={layouts.contact} page='contact' />
         </Stack>
       </Tabs.Panel>
     </Tabs>

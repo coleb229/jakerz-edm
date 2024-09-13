@@ -5,7 +5,7 @@ import { updatePageHeader } from '@/lib/db';
 import { redirect } from 'next/navigation';
 import { toast } from 'react-toastify';
 
-export const ChangeHeader = ({ page }:any) => {
+export const ChangeHeader = ({ page, layout }:any) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   return (
@@ -20,13 +20,13 @@ export const ChangeHeader = ({ page }:any) => {
           Change Page Header Text
         </Text>
 
-        <Form page={page} />
+        <Form page={page} layout={layout} />
       </Dialog>
     </Box>
   )
 }
 
-const Form = ({ page }:any) => {
+const Form = ({ page, layout }:any) => {
   const clientUpdatePageHeader = async(formData: FormData) => {
     const result = await updatePageHeader(formData);
     if(result?.error) {
@@ -36,16 +36,17 @@ const Form = ({ page }:any) => {
     }
     redirect('/settings');
   }
+
   return (
     <form action={clientUpdatePageHeader}>
       <input type="text" hidden name='location' value={page} />
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Main Text ={'>'}</Text>
-        <TextInput placeholder="Main Text" required name='headerText' />
+        <TextInput placeholder="Main Text" defaultValue={layout.headerText} required name='headerText' />
       </div>
       <div className='flex items-center justify-between'>
         <Text size="lg" mb="xs" fw={500}>Subtitle Text ={'>'}</Text>
-        <TextInput placeholder="Sub Text" required name='subtitle' />
+        <TextInput placeholder="Sub Text" defaultValue={layout.subheaderText} required name='subtitle' />
       </div>
       <button type="submit">Submit</button>
     </form>

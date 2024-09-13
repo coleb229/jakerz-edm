@@ -12,7 +12,7 @@ export const UpdateBioSection = ({ layout }:any) => {
   return (
     <div>
       <UpdateBioHeader layout={layout} />
-      <UpdateBioText />
+      <UpdateBioText layout={layout} />
     </div>
   )
 }
@@ -34,7 +34,7 @@ const UpdateBioHeader = ({ layout }:any) => {
       <div className="flex justify-between">
         <Text size="lg" mb="xs" fw={500}>Update Bio Header ={'>'}</Text>
         <div className="flex">
-          <TextInput placeholder="Bio Header" required name='bioHeader' />
+          <TextInput placeholder="Bio Header" defaultValue={layout.bioHeader} required name='bioHeader' />
           <Button type="submit">Submit</Button>
         </div>
       </div>
@@ -42,7 +42,7 @@ const UpdateBioHeader = ({ layout }:any) => {
   )
 }
 
-const UpdateBioText = () => {
+const UpdateBioText = ({ layout }:any) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   const toastUpdateBioText = async(formData:FormData) => {
@@ -68,7 +68,7 @@ const UpdateBioText = () => {
           <Text size="sm" mb="xs" fw={500}>
             Change Bio Text
           </Text>
-          <TextEditor name="bioText" />
+          <TextEditor name="bioText" layout={layout} />
           <Button type="submit">Submit</Button>
         </form>
       </Dialog>
@@ -76,14 +76,14 @@ const UpdateBioText = () => {
   )
 }
 
-const TextEditor = ({ name }:InputHTMLAttributes<HTMLInputElement>) => {
+const TextEditor = ({ name, layout }:{name:string, layout:any}) => {
   const [value, setValue] = useState('')
   const editor = useEditor({
     extensions: [
       StarterKit,
       Link
     ],
-    content: value,
+    content: layout.bioText,
     onUpdate: ({ editor }) => {
       setValue(editor.getHTML()); // Update state with editor content
     },
