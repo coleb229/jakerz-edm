@@ -16,6 +16,8 @@ export default async function Page() {
     where: { email: user.email }
   })
 
+  const showData = await prisma.showDate.findMany({})
+
   if (!userProfile || userProfile.role !== 'ADMIN') {
     return (
       <MainContainer layout='home'>
@@ -36,7 +38,7 @@ export default async function Page() {
     return (
       <MainContainer layout='home'>
         <h1 className='text-white'>Settings</h1>
-        <SettingsStack layout={layout} />
+        <SettingsStack layout={layout} showData={showData} />
       </MainContainer>
     )
   }

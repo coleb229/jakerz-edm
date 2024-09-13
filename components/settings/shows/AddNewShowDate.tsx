@@ -1,5 +1,5 @@
 import { useDisclosure } from '@mantine/hooks';
-import { Dialog, Group, Button, TextInput, Text } from '@mantine/core';
+import { Dialog, Button, TextInput, Text } from '@mantine/core';
 import { addShowDate } from '@/lib/db';
 import { toast } from 'react-toastify';
 import { redirect } from 'next/navigation';

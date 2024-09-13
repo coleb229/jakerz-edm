@@ -33,6 +33,19 @@ export const addShowDate = async(formData:FormData) => {
   }
 }
 
+export const deleteShow = async(formData:FormData) => {
+  try {
+    await prisma.showDate.delete({
+      where: { id: formData.get('id') as string }
+    })
+  } catch (error) {
+    console.error(error)
+    return {
+      error: 'Error deleting show'
+    }
+  }
+}
+
 export const updatePageHeader = async(formData:FormData) => {
   try {
     await prisma.pageParams.update({

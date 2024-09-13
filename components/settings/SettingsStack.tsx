@@ -14,8 +14,9 @@ import { AddNewShowDate } from './shows/AddNewShowDate';
 import { AddNewPicturesToGallery } from './gallery/AddNewPicturesToGallery';
 import { ChangeHeader } from './ChangeHeader';
 import { UpdateBioSection } from './home/UpdateBio';
+import { DeleteShow } from './shows/DeleteShow';
 
-export const SettingsStack = ({ layout }:any) => {
+export const SettingsStack = ({ layout, showData }:any) => {
   const [activeTab, setActiveTab] = useState<string | null>('home');
   
   const iconStyle = {
@@ -97,6 +98,7 @@ export const SettingsStack = ({ layout }:any) => {
           <UploadBackgroundImage location='shows' />
           <ChangeHeader layout={layouts.shows} page='shows' />
           <AddNewShowDate />
+          <DeleteShow data={showData} />
         </Stack>
       </Tabs.Panel>
 
