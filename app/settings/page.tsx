@@ -5,6 +5,7 @@ import { MainContainer } from '@/components/MainContainer'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import Image from 'next/image'
+import { NetworkStatus } from '@/components/settings/NetworkStatus'
 
 export default async function Page() {
   const layout = await prisma.pageParams.findMany({})
@@ -37,6 +38,7 @@ export default async function Page() {
   } else {
     return (
       <MainContainer layout='home'>
+        <NetworkStatus />
         <h1 className='text-white'>Settings</h1>
         <SettingsStack layout={layout} showData={showData} />
       </MainContainer>
