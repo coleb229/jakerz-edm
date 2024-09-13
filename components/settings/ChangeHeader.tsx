@@ -1,6 +1,6 @@
 'use client'
 import { useDisclosure } from '@mantine/hooks';
-import { Dialog, Group, Button, TextInput, Text } from '@mantine/core';
+import { Dialog, Group, Button, TextInput, Text, Box } from '@mantine/core';
 import { updatePageHeader } from '@/lib/db';
 import { redirect } from 'next/navigation';
 import { toast } from 'react-toastify';
@@ -9,11 +9,11 @@ export const ChangeHeader = ({ page }:any) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
   return (
-    <>
-      <Group justify="center">
+    <Box>
+      <div className='flex justify-between'>
         <Text size="lg" fw={500}>Change Header ={'>'} </Text>
         <Button onClick={toggle}>Open Form</Button>
-      </Group>
+      </div>
 
       <Dialog opened={opened} withCloseButton onClose={close} size="lg" radius="md">
         <Text size="sm" mb="xs" fw={500}>
@@ -22,7 +22,7 @@ export const ChangeHeader = ({ page }:any) => {
 
         <Form page={page} />
       </Dialog>
-    </>
+    </Box>
   )
 }
 

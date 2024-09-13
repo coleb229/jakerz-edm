@@ -30,12 +30,14 @@ const UpdateBioHeader = ({ layout }:any) => {
 
   return (
     <form action={toastUpdateBioHeader}>
-      <Group justify="center">
-        <input type="text" hidden name='location' value='home' />
+      <input type="text" hidden name='location' value='home' />
+      <div className="flex justify-between">
         <Text size="lg" mb="xs" fw={500}>Update Bio Header ={'>'}</Text>
-        <TextInput placeholder="Bio Header" required name='bioHeader' />
-        <Button type="submit">Submit</Button>
-      </Group>
+        <div className="flex">
+          <TextInput placeholder="Bio Header" required name='bioHeader' />
+          <Button type="submit">Submit</Button>
+        </div>
+      </div>
     </form>
   )
 }
@@ -55,10 +57,10 @@ const UpdateBioText = () => {
 
   return (
     <>  
-      <Group justify="center">
+      <div className="flex justify-between">
         <Text size="lg" mb="xs" fw={500}>Update Bio Text ={'>'}</Text>
         <Button onClick={toggle}>Open Form</Button>
-      </Group>
+      </div>
           
       <Dialog opened={opened} withCloseButton onClose={close} size="lg" radius="md">
         <form action={toastUpdateBioText}>

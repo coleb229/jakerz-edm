@@ -62,11 +62,11 @@ export const UploadBackgroundImage = ({ location }:any, props: Partial<DropzoneP
   }
 
   return (
-    <Box maw={400} mx="auto">
-      <Group justify="center" mb={5}>
+    <Box>
+      <div className='flex justify-between'>
         <Text size="xl">Background Image ={'>'}</Text>
         <Button onClick={toggle}>Change</Button>
-      </Group>
+      </div>
 
       <Collapse in={opened}>
         <div className='bg-slate-800 opacity-90 rounded-lg p-6'>

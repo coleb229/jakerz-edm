@@ -9,10 +9,10 @@ export const AddNewShowDate = () => {
 
   return (
     <>
-      <Group justify="center">
+      <div className='flex justify-between'>
         <Text size="lg" fw={500}>Add New Show Date ={'>'} </Text>
         <Button onClick={toggle}>Open Form</Button>
-      </Group>
+      </div>
 
       <Dialog opened={opened} withCloseButton onClose={close} size="lg" radius="md">
         <Text size="sm" mb="xs" fw={500}>

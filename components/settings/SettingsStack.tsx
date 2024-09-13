@@ -70,6 +70,7 @@ export const SettingsStack = () => {
           align="stretch"
           justify="center"
           gap="md"
+          px={40}
         >
           <UploadBackgroundImage location='home' />
           <ChangeHeader page='home' />
@@ -83,6 +84,7 @@ export const SettingsStack = () => {
           align="stretch"
           justify="center"
           gap="md"
+          px={40}
         >
           <UploadBackgroundImage location='shows' />
           <ChangeHeader page='shows' />
@@ -96,6 +98,7 @@ export const SettingsStack = () => {
           align="stretch"
           justify="center"
           gap="md"
+          px={40}
         >
           <UploadBackgroundImage location='gallery' />
           <ChangeHeader page='gallery' />
@@ -109,6 +112,7 @@ export const SettingsStack = () => {
           align="stretch"
           justify="center"
           gap="md"
+          px={40}
         >
           <UploadBackgroundImage location='videos' />
           <ChangeHeader page='videos' />
@@ -122,6 +126,7 @@ export const SettingsStack = () => {
           align="stretch"
           justify="center"
           gap="md"
+          px={40}
         >
           <UploadBackgroundImage location='contact' />
           <ChangeHeader page='contact' />

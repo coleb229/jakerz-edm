@@ -8,10 +8,10 @@ export const AddNewVideo = () => {
 
   return (
     <>
-      <Group justify="center">
+      <div className='flex justify-between'>
         <Text size="xl">Add New Video ={'>'}</Text>
         <Button onClick={toggle}>Open Form</Button>
-      </Group>
+      </div>
 
       <Dialog opened={opened} withCloseButton onClose={close} size="lg" radius="md">
         <Text size='xl'>Add New Video</Text>
